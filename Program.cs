@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions;
-using order.Data;
+using usermgmt.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,11 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<OrderContext>(options =>
+builder.Services.AddDbContext<UserMgmtContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-//builder.Services.AddScoped<IOrderIRepository, OrderIRepository>();
-builder.Services.AddScoped<IOrderIRepository, MockOrderIRepository>();
+//builder.Services.AddScoped<UserMgmtRepository, UserMgmtRepository>();
+builder.Services.AddScoped<IUserMgmtRepository, MockUserMgmtRepository>();
 
 builder.Services.AddCors(options =>
             {
@@ -52,6 +52,6 @@ app.Run();
   
 // if (app.Environment.IsDevelopment())
 // {
-//     builder.Services.AddScoped<IOrderIRepository, MockOrderIRepository>();
+//     builder.Services.AddScoped<UserMgmtRepository, UserMgmtRepository>();
 // }
 
