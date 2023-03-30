@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: order-deployment
+  name: usermgmt-deployment
   labels:
-    app: order
+    app: usermgmt
 spec:
   replicas: 3 # number of replicas to create
   selector:
     matchLabels:
-      app: order
+      app: usermgmt
   template:
     metadata:
       labels:
-        app: order
+        app: usermgmt
     spec:
       containers:
       - name: order-cont
         image: acrammarpoc.azurecr.io/order:latest # replace with your web API image name
         imagePullPolicy: IfNotPresent # pull image only if it doesn't exist
         ports:
-          - containerPort: 5035
+          - containerPort: 5037
             protocol: TCP
         env:
           - name: ASPNETCORE_URLS
-            value: http://+:5035
+            value: http://+:5037
