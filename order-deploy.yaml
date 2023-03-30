@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: order-cont
-        image: acrmatmanpoc2.azurecr.io/order:latest # replace with your web API image name
+        image: acrammarpoc.azurecr.io/order:latest # replace with your web API image name
         imagePullPolicy: IfNotPresent # pull image only if it doesn't exist
         ports:
           - containerPort: 5035
