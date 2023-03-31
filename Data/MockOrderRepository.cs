@@ -1,9 +1,9 @@
 namespace order.Data;
-public class MockOrderIRepository : IOrderIRepository
+public class MockOrderRepository : IOrderRepository
 {
     private readonly List<Order> _orders;
 
-    public MockOrderIRepository()
+    public MockOrderRepository()
     {
         List<OrderItem> orderItems = new List<OrderItem>();
         orderItems.Add(new OrderItem { Id =1, ProductId = 1, Quantity = 2, OrderId = 1 });
@@ -14,8 +14,8 @@ public class MockOrderIRepository : IOrderIRepository
         orderItems2.Add(new OrderItem { Id =4, ProductId = 3, Quantity = 4, OrderId = 2 });
 
         List<ShippingAddress> addresses = new List<ShippingAddress>(){
-            new ShippingAddress { Id=1, AddressLine1="345 Main street", City="Irvine", State="CA", Zipcode="89756"},
-            new ShippingAddress { Id=2, AddressLine1="7331 Marigold lane", City="Prescott", State="AZ", Zipcode="08872"},
+            new ShippingAddress { Id=1, AddressLine1="345 Main street", City="Irvine", State="CA", Zipcode="89756", OrderId=1},
+            new ShippingAddress { Id=2, AddressLine1="7331 Marigold lane", City="Prescott", State="AZ", Zipcode="08872", OrderId=2},
         };
 
         _orders = new List<Order>();

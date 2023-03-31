@@ -1,7 +1,7 @@
 
 namespace order.Data;
 
-public interface IOrderIRepository
+public interface IOrderRepository
 {
     Task<IEnumerable<Order>> GetAllOrdersAsync();
     Task<Order> GetOrderByIdAsync(int id);

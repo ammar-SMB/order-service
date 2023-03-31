@@ -18,8 +18,14 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddDbContext<OrderContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-//builder.Services.AddScoped<IOrderIRepository, OrderIRepository>();
-builder.Services.AddScoped<IOrderIRepository, MockOrderIRepository>();
+if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
+{
+    builder.Services.AddScoped<IOrderRepository, OrderIRepository>();
+}
+else
+{
+    builder.Services.AddScoped<IOrderRepository, MockOrderRepository>();
+}
 
 builder.Services.AddCors(options =>
             {
@@ -57,9 +63,9 @@ app.MapControllers();
 app.Run();
 
 
-  
+
 // if (app.Environment.IsDevelopment())
 // {
-//     builder.Services.AddScoped<IOrderIRepository, MockOrderIRepository>();
+//     builder.Services.AddScoped<IOrderRepository, MockOrderRepository>();
 // }
 

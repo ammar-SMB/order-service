@@ -23,6 +23,8 @@ public class ShippingAddress
     public string State { get; set; }
     [Required]
     public string Zipcode { get; set; }
+    [Required]
+    public int OrderId { get; set; }
 }
 public class OrderItem
 {

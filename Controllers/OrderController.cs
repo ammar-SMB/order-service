@@ -6,9 +6,9 @@ using order.Data;
 
 public class OrderController : ControllerBase
 {
-    private readonly IOrderIRepository _orderRepository;
+    private readonly IOrderRepository _orderRepository;
 
-    public OrderController(IOrderIRepository orderRepository)
+    public OrderController(IOrderRepository orderRepository)
     {
         _orderRepository = orderRepository;
     }
@@ -55,4 +55,5 @@ public class OrderController : ControllerBase
         await _orderRepository.DeleteOrderAsync(id);
         return NoContent();
     }
+    
 }

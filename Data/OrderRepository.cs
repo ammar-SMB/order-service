@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace order.Data;
-public class OrderIRepository : IOrderIRepository
+public class OrderIRepository : IOrderRepository
 {
     private readonly OrderContext _context;
 
@@ -14,7 +14,10 @@ public class OrderIRepository : IOrderIRepository
 
     public async Task<IEnumerable<Order>> GetAllOrdersAsync()
     {
-        return await _context.Orders.ToListAsync();
+        return await _context.Orders
+                .Include(o => o.OrderItems)
+                .Include(o => o.ShippingAddress)
+                .ToListAsync();
     }
 
 
