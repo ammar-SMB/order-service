@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace usermgmt.Controllers;
+namespace order_service.Controllers;
 
 [ApiController]
 [Route("[controller]")]

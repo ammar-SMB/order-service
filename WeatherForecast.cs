@@ -1,4 +1,4 @@
-namespace usermgmt;
+namespace order_service;
 
 public class WeatherForecast
 {

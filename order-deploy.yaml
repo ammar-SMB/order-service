@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-deployment
+  labels:
+    app: order
+spec:
+  replicas: 3 # number of replicas to create
+  selector:
+    matchLabels:
+      app: order
+  template:
+    metadata:
+      labels:
+        app: order
+    spec:
+      containers:
+      - name: order-cont
+        image: acrammarpoc.azurecr.io/order:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 4752
+            protocol: TCP
+        env:
+          - name: ASPNETCORE_URLS
+            value: http://+:4752
