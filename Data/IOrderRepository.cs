@@ -1,4 +1,6 @@
 
+using order.Model;
+
 namespace order.Data;
 
 public interface IOrderRepository

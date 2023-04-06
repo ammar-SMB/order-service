@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using order.Data;
+using order.Model;
+
+namespace order.Controllers;
 
 [ApiController]
 [Route("[controller]")]

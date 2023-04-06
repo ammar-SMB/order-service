@@ -1,13 +1,14 @@
 using Microsoft.EntityFrameworkCore;
+using order.Model;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace order.Data;
-public class OrderIRepository : IOrderRepository
+public class OrderRepository : IOrderRepository
 {
     private readonly OrderContext _context;
 
-    public OrderIRepository(OrderContext context)
+    public OrderRepository(OrderContext context)
     {
         _context = context;
     }

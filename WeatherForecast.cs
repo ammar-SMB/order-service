@@ -1,4 +1,4 @@
-namespace order;
+namespace order_service;
 
 public class WeatherForecast
 {

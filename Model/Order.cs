@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+namespace order.Model;
+
 public class Order
 {
     [Key]
@@ -37,4 +39,3 @@ public class OrderItem
     [Required]
     public int OrderId { get; set; }
 }
-

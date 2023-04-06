@@ -1,3 +1,5 @@
+using order.Model;
+
 public class OrderFactory
     {
         public static Order CreateOrder(int id, DateTime date, List<OrderItem> orderItems, ShippingAddress shippingAddress)

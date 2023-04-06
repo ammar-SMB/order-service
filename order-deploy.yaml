@@ -16,11 +16,11 @@ spec:
     spec:
       containers:
       - name: order-cont
-        image: acrmatmanpoc2.azurecr.io/order:latest # replace with your web API image name
-        imagePullPolicy: IfNotPresent # pull image only if it doesn't exist
+        image: acrammarpoc.azurecr.io/order:latest
+        imagePullPolicy: IfNotPresent
         ports:
-          - containerPort: 80
+          - containerPort: 4752
             protocol: TCP
         env:
           - name: ASPNETCORE_URLS
-            value: http://+:80
+            value: http://+:4752
