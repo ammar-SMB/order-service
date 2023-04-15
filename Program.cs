@@ -15,16 +15,28 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<OrderContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<IOrderRepository, OrderRepository>();    
+builder.Services.AddScoped<IOrderRepository, MockOrderRepository>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularClient",
+      builder =>
+      {
+          builder
+          .AllowAnyOrigin()
+          .AllowAnyHeader()
+          .AllowAnyMethod();
+      });
+});
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
+app.UseCors("AllowAngularClient");
 
 app.UseHttpsRedirection();
 
